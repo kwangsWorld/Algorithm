@@ -6,16 +6,13 @@ class Solution {
         
         ArrayList<Integer> list = new ArrayList<>();
         
-        for(int i = 0; i < arr.length;){
+        for(int i = 0; i < arr.length;i++){
             if(list.size() == 0){
                 list.add(arr[i]);
-                i++;
             }else if(list.size() > 0 && list.get(list.size() - 1) == arr[i]){
                 list.remove(list.size() - 1);
-                i++;
             }else{
                 list.add(arr[i]);
-                i++;
             }
         }
         
