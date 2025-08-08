@@ -11,14 +11,8 @@ class Solution {
                     list.add(arr[i]);
                 }
             }else {
-                int removeCount = Math.min(arr[i], list.size());
-                int start = list.size() - removeCount;
-
-                for (int j = list.size() - 1; j >= start; j--) {
-                    // 여기서 j가 음수가 되는 걸 막기 위한 보조 조건
-                    if (j >= 0 && j < list.size()) {
-                        list.remove(j);
-                    }
+                for(int j = 0; j < arr[i]; j++){
+                    list.remove(list.size() - 1);
                 }
             }
         }
