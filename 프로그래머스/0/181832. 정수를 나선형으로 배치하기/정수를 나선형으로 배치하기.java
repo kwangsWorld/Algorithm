@@ -1,37 +1,40 @@
 class Solution {
-   public int[][] solution(int n) {
-        int[][] result = new int[n][n];
-        int top = 0, bottom = n - 1;
-        int left = 0, right = n - 1;
+    public int[][] solution(int n) {
+        int[][] answer = new int[n][n];
+        
         int num = 1;
-        int max = n * n;
-
-        while (num <= max) {
-            // 왼쪽에서 오른쪽 (top row)
-            for (int j = left; j <= right && num <= max; j++) {
-                result[top][j] = num++;
+        int top = 0, bottom = n-1;
+        int left = 0, right = n-1;
+        
+        while(num <= n*n){
+            
+            //오른쪽 이동
+            for(int j = left; j <= right && num <= n*n; j++){
+                answer[top][j] = num++;
             }
             top++;
-
-            // 위에서 아래로 (right column)
-            for (int i = top; i <= bottom && num <= max; i++) {
-                result[i][right] = num++;
+            
+            //아래로 이동
+            for(int i = top; i <= bottom && num <= n*n; i++){
+                answer[i][right] = num++;
             }
             right--;
-
-            // 오른쪽에서 왼쪽 (bottom row)
-            for (int j = right; j >= left && num <= max; j--) {
-                result[bottom][j] = num++;
+            
+            //왼쪽으로 이동
+            for(int j = right; j >= left && num <= n*n; j--){
+                answer[bottom][j] = num++;
             }
             bottom--;
-
-            // 아래에서 위로 (left column)
-            for (int i = bottom; i >= top && num <= max; i--) {
-                result[i][left] = num++;
+            
+            //위쪽으로 이동
+            for(int i = bottom; i >= top && num <= n*n; i--){
+                answer[i][left] = num++;
             }
             left++;
+            
         }
-
-        return result;
+        
+        
+        return answer;
     }
 }
