@@ -1,17 +1,18 @@
 class Solution {
     public int solution(int n) {
-        int pizza = 0;
-        if(n % 6 == 0)
-        {
-            return n / 6;
+        int answer = 0;
+        int pizzaCount = 1;
+        if(n % 6 == 0){
+            answer = n / 6;
         }else{
-            for(int i = 1; i <= n; i++){
-                if(6 * i % n == 0){
-                    pizza = i;
+            while(true){
+                if((pizzaCount * 6) % n == 0){
                     break;
                 }
+                pizzaCount++;
             }
-            return pizza;
+            answer = pizzaCount;
         }
+        return answer;
     }
 }
