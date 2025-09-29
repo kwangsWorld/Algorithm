@@ -1,19 +1,22 @@
 class Solution {
     public int solution(int slice, int n) {
-        int pizza = 0;
-        if(slice >= 2 && slice <= 10 && n >= 1 && n <= 100){
-
-            if(n % slice == 0){
-                return n / slice;
+        int answer = 0;
+        int pizzaCount = 1;
+        if(n % slice == 0){
+            answer = n / slice;
+        }else{
+            if(n < slice){
+                answer = 1;
             }else{
-                for(int i = 1; i <= n; i++){
-                    if((slice * i) / n >= 1){
-                        pizza = i;
+                while(true){
+                    if(n <= slice * pizzaCount){
                         break;
                     }
+                    pizzaCount++;
                 }
+                answer = pizzaCount;
             }
         }
-        return pizza;
+        return answer;
     }
 }
